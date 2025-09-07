@@ -270,57 +270,57 @@ class SnowflakeCrossword:
                     'hint': 'Snowflakeのセマンティックカタログやガバナンス機能をまとめた名称',
                     'label': '水'
                 },
-                '蟲': {
+                '火': {
                     'row': 2, 'col': 0, 'answer': 'INTELLIGENCE', 
                     'hint': '洞察を提供する安全なAIエージェント',
-                    'label': '蟲'
+                    'label': '火'
                 },
-                '炎': {
+                '風': {
                     'row': 8, 'col': 0, 'answer': 'SEARCH', 
                     'hint': 'Snowfoldの隠れた意識された用語ページ内・AI統合検索の補完機能',
-                    'label': '炎'
+                    'label': '風'
                 },
-                '音': {
+                '空': {
                     'row': 7, 'col': 4, 'answer': 'SUMMIT', 
                     'hint': 'Snowflake が年に一度開催している、グローバルイベントの名称',
-                    'label': '音'
+                    'label': '空'
                 },
-                '恋': {
+                '地': {
                     'row': 3, 'col': 2, 'answer': 'DBT', 
                     'hint': 'Snowsightから直接操作できる、データモデルパイプライン構築の統合環境',
-                    'label': '恋'
+                    'label': '地'
                 },
             },
             'down': {
-                '蛇': {
+                '光': {
                     'row': 0, 'col': 3, 'answer': 'ICEBERG', 
                     'hint': 'Snowflakeがサポートを強化しているオープンテーブルフォーマット',
-                    'label': '蛇'
+                    'label': '光'
                 },
-                '風': {
+                '闇': {
                     'row': 1, 'col': 8, 'answer': 'SEMANTIC', 
                     'hint': '「ビジネス定義を含むビュー」を指すもの',
-                    'label': '風'
+                    'label': '闇'
                 },
-                '霞': {
+                '月': {
                     'row': 1, 'col': 6, 'answer': 'AISQL', 
                     'hint': '自然言語を活用しながらSQLクエリを発行できる機能',
-                    'label': '霞'
+                    'label': '月'
                 },
-                '岩': {
+                '木': {
                     'row': 1, 'col': 9, 'answer': 'ANALYST', 
                     'hint': 'Snowflake が提供する生成 AI を活用した自然言語分析のためのツール',
-                    'label': '岩'
+                    'label': '木'
                 },
-                '雷': {
+                '金': {
                     'row': 1, 'col': 1, 'answer': 'SNOWPIPE', 
                     'hint': 'Snowflakeのリアルタイムデータ取り込みを担うサービス',
-                    'label': '雷'
+                    'label': '金'
                 },
-                '火': {
+                '土': {
                     'row': 0, 'col': 11, 'answer': 'OPENFLOW', 
                     'hint': '構造化・非構造化データやバッチ・ストリームの統合を簡素化する機能',
-                    'label': '火'
+                    'label': '土'
                 },
             }
         }
@@ -674,12 +674,15 @@ def main():
                                     st.session_state.hint_uses += 1
                                     st.rerun()
     
-    # 完全に見えない全答えボタン（キーボードショートカット Ctrl+Shift+Zで実行）
-    if st.text_input("", key="secret_key", label_visibility="collapsed", 
-                     placeholder="", max_chars=1, 
-                     help=None) == "Z":
-        puzzle.reveal_all_answers()
-        st.rerun()
+    # 完全に見えない全答えボタン（"SIMPLICITY"入力で実行）
+    st.subheader("💫超秘奥義（全回答の出力コマンド）　※問題回答時には使用しません")
+    secret_input = st.text_input("", key="secret_key", label_visibility="collapsed", 
+                            placeholder="", max_chars=10, 
+                            help=None)
+    if secret_input == "SIMPLICITY":
+        if st.button("超秘奥義", key="reveal_all_button"):
+            puzzle.reveal_all_answers()
+            st.rerun()
 
 if __name__ == "__main__":
     main()
